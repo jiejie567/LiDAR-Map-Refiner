@@ -1,0 +1,13 @@
+name: manual-loop-closure
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - numpy=1.26.4
+  - scipy=1.14.1
+  - matplotlib=3.10.8
+  - pip:
+      - PyQt5==5.15.10
+      - open3d==0.19.0
+      - pybind11-stubgen==2.5.5

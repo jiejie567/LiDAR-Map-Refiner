@@ -1,0 +1,90 @@
+{
+  "schema_version": 2,
+  "convention": "T_truth_body_keyframe; world_T_keyframe = world_T_truth_body @ T_truth_body_keyframe",
+  "datasets": {
+    "building_day": {
+      "truth_frame": "STIM300 body IMU",
+      "legacy_keyframe_frame_role": "lidar_imu",
+      "keyframe_frames": {
+        "lidar_imu": {
+          "name": "Ouster built-in IMU",
+          "T_truth_body_keyframe": [
+            [0.9999596987151435, 0.007429682828237237, 0.0050399165262110445, 0.04360734398745596],
+            [-0.007470043373071441, 0.9999397992046207, 0.008037189721961662, -0.018699911330865467],
+            [-0.004979899348762979, -0.008074514207936688, 0.9999550003989088, 0.027766766854955535],
+            [0.0, 0.0, 0.0, 1.0]
+          ],
+          "source": "FusionPortable 20220209 calibration: inverse(T_sensor_bodyimu) @ T_sensor_osimu"
+        }
+      }
+    },
+    "kth": {
+      "truth_frame": "VN200 body IMU",
+      "legacy_keyframe_frame_role": "lidar_imu",
+      "keyframe_frames": {
+        "lidar_imu": {
+          "name": "Ouster built-in IMU",
+          "T_truth_body_keyframe": [
+            [0.999913504, -0.011166366, -0.006949579, -0.0426143976],
+            [-0.011356390, -0.999545301, -0.027932495, -0.0197842001],
+            [-0.006634515, 0.028009001, -0.999585654, -0.0255682819],
+            [0.0, 0.0, 0.0, 1.0]
+          ],
+          "source": "MCD Handheld Setup calibration, Ouster built-in IMU to VN200 body"
+        },
+        "base_link": {
+          "name": "VN200 body IMU",
+          "T_truth_body_keyframe": [
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0]
+          ],
+          "source": "FAST-LIO base_link export uses the audited MCD VN200 truth-body calibration"
+        }
+      }
+    },
+    "ntu": {
+      "truth_frame": "VN100 body IMU",
+      "legacy_keyframe_frame_role": "lidar_imu",
+      "keyframe_frames": {
+        "lidar_imu": {
+          "name": "Ouster built-in IMU",
+          "T_truth_body_keyframe": [
+            [0.999934655, 0.003477625, -0.010889970, -0.0545208405],
+            [0.003587143, -0.999943028, 0.010053516, -0.0009639255],
+            [-0.010854387, -0.010091923, -0.999890162, -0.0280858073],
+            [0.0, 0.0, 0.0, 1.0]
+          ],
+          "source": "MCD All-Terrain Vehicle calibration, Ouster built-in IMU to VN100 body"
+        },
+        "base_link": {
+          "name": "VN100 body IMU",
+          "T_truth_body_keyframe": [
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0]
+          ],
+          "source": "FAST-LIO base_link export uses the audited MCD VN100 truth-body calibration"
+        }
+      }
+    },
+    "spires": {
+      "truth_frame": "Oxford Spires base",
+      "legacy_keyframe_frame_role": "lidar_imu",
+      "keyframe_frames": {
+        "lidar_imu": {
+          "name": "Alphasense IMU used by FAST-LIO",
+          "T_truth_body_keyframe": [
+            [0.01663823631805918, -0.9998555141930701, 0.003554959389021286, -0.015797777773026177],
+            [0.999860209455264, 0.01663177428703986, -0.001775382601530796, 0.0010601236314721763],
+            [0.001715616666605726, 0.003584036424607256, 0.9999922107529402, 0.039424366214358686],
+            [0.0, 0.0, 0.0, 1.0]
+          ],
+          "source": "Oxford Spires T_base_lidar @ inverse(T_imu_lidar); official base-lidar plus sensor.yaml-derived IMU-lidar"
+        }
+      }
+    }
+  }
+}

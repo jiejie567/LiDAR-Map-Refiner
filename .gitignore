@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Conda / venv
+.venv/
+venv/
+
+# Catkin / CMake
+backend/catkin_ws/build/
+backend/catkin_ws/devel/
+backend/catkin_ws/install/
+backend/catkin_ws/logs/
+backend/catkin_ws/.catkin_tools/
+build/
+devel/
+install/
+
+# Generated outputs
+manual_loop_runs/
+*.bag
+
+# OS
+.DS_Store
+Thumbs.db
