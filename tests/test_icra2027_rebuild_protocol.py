@@ -15,6 +15,7 @@ sys.path.insert(0, str(GUI_DIR))
 from icra2027_rebuild import (  # noqa: E402
     CODE_INPUTS,
     DatasetSpec,
+    TOOL_ROOT,
     prepare_dataset,
     sha256_file,
 )
@@ -36,7 +37,7 @@ from manual_loop_closure.python_optimizer.optimizer import (  # noqa: E402
 class Icra2027RebuildProtocolTest(unittest.TestCase):
     def test_code_inventory_covers_complete_runtime_package(self):
         relative = {
-            path.as_posix().split("tools/manual_loop_closure/", 1)[-1]
+            path.relative_to(TOOL_ROOT).as_posix()
             for path in CODE_INPUTS
         }
         for required in (

@@ -22,10 +22,15 @@ from pathlib import Path
 
 
 HERE = Path(__file__).resolve().parent
-REPO = Path(__file__).resolve().parents[4]
+TOOL_ROOT = HERE.parents[1]
+# Support both the original ``slam/tools/manual_loop_closure`` checkout and
+# the standalone LiDAR-Map-Refiner repository.  Dataset defaults still point
+# at the parent SLAM checkout when that layout is present, while code hashing
+# is always rooted in this tool itself.
+REPO = TOOL_ROOT.parents[1] if TOOL_ROOT.parent.name == "tools" else TOOL_ROOT
 RUNTIME = Path("/home/anyverse/icra2027_runtime")
 DRIVER = HERE / "auto_repair_headless.py"
-PACKAGE_ROOT = REPO / "tools/manual_loop_closure/gui/manual_loop_closure"
+PACKAGE_ROOT = TOOL_ROOT / "gui/manual_loop_closure"
 # Hash the complete imported package instead of maintaining a fragile manual
 # list of modules.  This deliberately includes a few GUI-only files: an extra
 # hash is harmless, while omitting optimizer_backend.py or a transitive helper
